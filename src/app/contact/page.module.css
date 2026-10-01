@@ -1,0 +1,125 @@
+.map {
+  height: 557px;
+  background: #e5e3df;
+}
+
+.mapFrame {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  filter: grayscale(0.35);
+}
+
+.section {
+  padding: 190px 0 40px;
+  background: linear-gradient(180deg, #fcfcfc 0%, var(--color-page) 100%);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: minmax(0, 808px) minmax(0, 411px);
+  justify-content: space-between;
+  gap: 60px;
+  align-items: start;
+}
+
+.eyebrow {
+  display: inline-block;
+  padding: 7px 20px;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--color-green-deep);
+  background: var(--color-secondary-alpha);
+  border-radius: var(--radius-sm);
+  box-shadow: 0 3px 9px rgba(115, 246, 190, 0.52);
+}
+
+.title {
+  margin: 14px 0 34px;
+  font-size: var(--fs-h1);
+  font-weight: 400;
+  letter-spacing: normal;
+  color: var(--color-green-deep);
+}
+
+/* Green gradient address card, lifted above the form row */
+.location {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  margin-top: -110px;
+  margin-right: 14px;
+  padding: 56px 30px 60px;
+  font-size: 20px;
+  font-style: normal;
+  text-align: center;
+  color: var(--color-white);
+  background: linear-gradient(180deg, var(--color-secondary) 0%, var(--color-green-dark) 100%);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 20px 40px rgba(0, 125, 86, 0.2);
+}
+
+.city {
+  font-size: 34px;
+  font-weight: 500;
+  letter-spacing: normal;
+  color: var(--color-white);
+}
+
+.divider {
+  width: 50px;
+  height: 1px;
+  margin: 10px 0 24px;
+  background: rgba(255, 255, 255, 0.6);
+}
+
+.location a {
+  border-radius: 3px;
+}
+
+.location a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 1024px) {
+  .map {
+    height: 420px;
+  }
+
+  .section {
+    padding: 70px 0 40px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .location {
+    margin: 0;
+  }
+}
+
+@media (max-width: 767px) {
+  .map {
+    height: 320px;
+  }
+
+  .section {
+    padding: 50px 0 30px;
+  }
+
+  .title {
+    margin-bottom: 24px;
+  }
+
+  .location {
+    padding: 40px 20px;
+    font-size: 17px;
+  }
+
+  .city {
+    font-size: 28px;
+  }
+}

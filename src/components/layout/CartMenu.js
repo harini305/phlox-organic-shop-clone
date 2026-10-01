@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useEffect, useId, useRef, useState } from "react";
 import { PiHandbagLight, PiXLight } from "react-icons/pi";
 import { useCart } from "@/context/CartContext";
@@ -99,6 +100,14 @@ export default function CartMenu() {
               <span>Subtotal</span>
               <strong>{formatPrice(total)}</strong>
             </p>
+            <div className={styles.links}>
+              <Link href="/cart" className={styles.viewCart} onClick={() => setOpen(false)}>
+                View cart
+              </Link>
+              <Link href="/checkout" className={styles.checkout} onClick={() => setOpen(false)}>
+                Checkout
+              </Link>
+            </div>
           </>
         )}
       </div>

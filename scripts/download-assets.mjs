@@ -64,6 +64,16 @@ const MANIFEST = [
   ["testimonials/amanda-janson.png", `${UPLOADS}/2021/01/attractive-woman-with-wavy-hair-in-beige-coat-GP5QCVP.png`],
   ["testimonials/andrew-flock.png", `${UPLOADS}/2021/01/8518280-36418.png`],
 
+  // About page (Unsplash photos used by the reference demo). The second
+  // "Our Story" photo reuses banners/promo-no-plastic-bg.jpg.
+  ["about/story-produce-aisle.jpg", `${UPLOADS}/2021/01/scott-evans-ScoYEG5LEgc-unsplash.jpg`],
+  ["about/market-stall.jpg", `${UPLOADS}/2021/01/scott-evans-XjnUkLNM6O0-unsplash.jpg`],
+  ["about/market-pumpkins.jpg", `${UPLOADS}/2021/01/sydney-rae-ho4lBWWD4nc-unsplash.jpg`],
+  ["about/team-1.jpg", `${UPLOADS}/2021/01/christian-buehner-DItYlc26zVI-unsplash.jpg`],
+  ["about/team-2.jpg", `${UPLOADS}/2021/01/dmitry-vechorko-yXhJ_eQK0mE-unsplash.jpg`],
+  ["about/team-3.jpg", `${UPLOADS}/2021/01/marvin-meyer-HrfZ1yOQw_E-unsplash.jpg`],
+  ["about/team-4.jpg", `${UPLOADS}/2021/01/anne-peres-plsF6obTgms-unsplash.jpg`],
+
   // UI icons
   ["icons/empty-cart.svg", `${THEME}/other/empty-cart.svg`],
 ];

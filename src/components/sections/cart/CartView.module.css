@@ -1,0 +1,247 @@
+.placeholder {
+  min-height: 320px;
+}
+
+/* ---------- Empty ---------- */
+.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  padding: 40px 20px 20px;
+  text-align: center;
+}
+
+.emptyText {
+  font-size: 18px;
+  color: var(--color-text);
+}
+
+/* ---------- Layout ---------- */
+.layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 380px);
+  gap: 40px;
+  align-items: start;
+}
+
+.tableWrap {
+  padding: 10px 30px 30px;
+  background: var(--color-white);
+  border-radius: 20px;
+  box-shadow: 0 2px 24px rgba(0, 0, 0, 0.05);
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th {
+  padding: 22px 12px;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-align: left;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.table td {
+  padding: 18px 12px;
+  font-size: 16px;
+  color: var(--color-dark);
+  vertical-align: middle;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.removeCell {
+  width: 44px;
+}
+
+.remove {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  font-size: 18px;
+  color: var(--color-muted);
+  border-radius: 50%;
+  transition:
+    color var(--duration) var(--ease),
+    background-color var(--duration) var(--ease);
+}
+
+.remove:hover {
+  color: var(--color-white);
+  background: var(--color-sale);
+}
+
+.thumbCell {
+  width: 100px;
+}
+
+.thumb {
+  object-fit: cover;
+  background: var(--color-bg-soft);
+  border-radius: var(--radius-md);
+}
+
+.name {
+  font-size: 18px;
+  font-weight: 700;
+  border-radius: 3px;
+  transition: color var(--duration) var(--ease);
+}
+
+.name:hover {
+  color: var(--color-primary);
+}
+
+.qty {
+  background: var(--color-bg-soft);
+}
+
+.subtotal {
+  font-weight: 700;
+  color: var(--color-primary) !important;
+}
+
+.continue {
+  display: inline-block;
+  margin-top: 22px;
+  font-weight: 700;
+  color: var(--color-primary);
+  border-radius: 3px;
+}
+
+.continue:hover {
+  color: var(--color-accent);
+}
+
+/* ---------- Totals ---------- */
+.totals {
+  padding: 32px 30px;
+  background: var(--color-white);
+  border-radius: 20px;
+  box-shadow: 0 2px 24px rgba(0, 0, 0, 0.05);
+}
+
+.totalsTitle {
+  margin-bottom: 18px;
+  font-size: 25px;
+  font-weight: 600;
+}
+
+.rows {
+  display: grid;
+  margin: 0;
+}
+
+.rows > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.rows dt {
+  font-weight: 600;
+  color: var(--color-dark);
+}
+
+.rows dd {
+  margin: 0;
+  text-align: right;
+}
+
+.grand dt,
+.grand dd {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.note {
+  margin-top: 14px;
+  font-size: 14px;
+  color: var(--color-muted);
+}
+
+.checkout {
+  width: 100%;
+  margin-top: 24px;
+}
+
+@media (max-width: 1024px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Stack each row as a card on phones */
+@media (max-width: 767px) {
+  .tableWrap {
+    padding: 4px 16px 20px;
+  }
+
+  .table thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+  }
+
+  .table tr {
+    position: relative;
+    display: grid;
+    grid-template-columns: 80px minmax(0, 1fr);
+    gap: 4px 14px;
+    padding: 18px 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .table td {
+    padding: 0;
+    border: 0;
+  }
+
+  .removeCell {
+    position: absolute;
+    top: 14px;
+    right: 0;
+    width: auto;
+  }
+
+  .thumbCell {
+    grid-row: span 4;
+    width: auto;
+  }
+
+  .nameCell {
+    padding-right: 36px !important;
+  }
+
+  .table td[data-label] {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    font-size: 15px;
+  }
+
+  .table td[data-label]::before {
+    content: attr(data-label);
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--color-muted);
+  }
+
+  .totals {
+    padding: 26px 20px;
+  }
+}

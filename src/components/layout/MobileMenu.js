@@ -7,7 +7,7 @@ import { PiUserLight, PiXLight } from "react-icons/pi";
 import CategoryMenu from "@/components/ui/CategoryMenu";
 import Logo from "@/components/ui/Logo";
 import SocialLinks from "@/components/ui/SocialLinks";
-import { mainNav } from "@/data/site";
+import { isCurrent, mainNav } from "@/data/site";
 import styles from "./MobileMenu.module.css";
 
 /**
@@ -76,13 +76,23 @@ export default function MobileMenu({ id, open, onClose }) {
                 <Link
                   href={href}
                   className={styles.link}
-                  aria-current={pathname === href ? "page" : undefined}
+                  aria-current={isCurrent(pathname, href) ? "page" : undefined}
                   onClick={onClose}
                 >
                   {label}
                 </Link>
               </li>
             ))}
+            <li>
+              <Link href="/cart" className={styles.link} onClick={onClose}>
+                Cart
+              </Link>
+            </li>
+            <li>
+              <Link href="/wishlist" className={styles.link} onClick={onClose}>
+                Wishlist
+              </Link>
+            </li>
             <li>
               <Link href="/my-account" className={styles.link} onClick={onClose}>
                 Login <PiUserLight aria-hidden="true" />

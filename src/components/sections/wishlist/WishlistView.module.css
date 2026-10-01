@@ -1,0 +1,147 @@
+.placeholder {
+  min-height: 200px;
+}
+
+.wrap {
+  padding: 10px 30px 20px;
+  background: var(--color-white);
+  border-radius: 20px;
+  box-shadow: 0 2px 24px rgba(0, 0, 0, 0.05);
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th {
+  padding: 22px 12px;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-align: left;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.table td {
+  padding: 18px 12px;
+  vertical-align: middle;
+  color: var(--color-dark);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.emptyCell {
+  padding: 34px 12px !important;
+  text-align: center;
+  color: var(--color-muted) !important;
+}
+
+.emptyCell a {
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.removeCell {
+  width: 44px;
+}
+
+.remove {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  font-size: 18px;
+  color: var(--color-muted);
+  border-radius: 50%;
+  transition:
+    color var(--duration) var(--ease),
+    background-color var(--duration) var(--ease);
+}
+
+.remove:hover {
+  color: var(--color-white);
+  background: var(--color-sale);
+}
+
+.thumbCell {
+  width: 100px;
+}
+
+.thumb {
+  object-fit: cover;
+  background: var(--color-bg-soft);
+  border-radius: var(--radius-md);
+}
+
+.name {
+  font-size: 18px;
+  font-weight: 700;
+  border-radius: 3px;
+}
+
+.name:hover {
+  color: var(--color-primary);
+}
+
+.stock {
+  font-weight: 600;
+  color: var(--color-secondary) !important;
+}
+
+.actionCell {
+  text-align: right;
+}
+
+@media (max-width: 767px) {
+  .wrap {
+    padding: 4px 16px 10px;
+  }
+
+  .table thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+  }
+
+  .table tr {
+    position: relative;
+    display: grid;
+    grid-template-columns: 80px minmax(0, 1fr);
+    gap: 6px 14px;
+    padding: 18px 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .table td {
+    padding: 0;
+    border: 0;
+  }
+
+  .emptyCell {
+    grid-column: 1 / -1;
+  }
+
+  .removeCell {
+    position: absolute;
+    top: 14px;
+    right: 0;
+    width: auto;
+  }
+
+  .thumbCell {
+    grid-row: span 4;
+    width: auto;
+  }
+
+  .actionCell {
+    text-align: left;
+  }
+}

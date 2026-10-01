@@ -1,0 +1,17 @@
+.shell {
+  padding-top: 70px;
+}
+
+.heading {
+  margin-bottom: 40px;
+}
+
+@media (max-width: 767px) {
+  .shell {
+    padding-top: 40px;
+  }
+
+  .heading {
+    margin-bottom: 26px;
+  }
+}
