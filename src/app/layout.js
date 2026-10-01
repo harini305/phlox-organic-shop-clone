@@ -1,6 +1,9 @@
 import { Nunito } from "next/font/google";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import ScrollEffects from "@/components/layout/ScrollEffects";
+import CertificationBadges from "@/components/sections/CertificationBadges";
+import Newsletter from "@/components/sections/Newsletter";
 import { CartProvider } from "@/context/CartContext";
 import "./globals.css";
 
@@ -12,6 +15,8 @@ const nunito = Nunito({
 });
 
 export const metadata = {
+  // Resolves relative Open Graph image URLs; set NEXT_PUBLIC_SITE_URL when deploying.
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"),
   title: {
     default: "Organic Shop — Fresh Organic Fruit, Vegetables & Groceries",
     template: "%s | Organic Shop",
@@ -43,7 +48,11 @@ export default function RootLayout({ children }) {
         <CartProvider>
           <Header />
           <main id="main">{children}</main>
+          {/* Every reference page ends with the badge card and newsletter band */}
+          <CertificationBadges />
+          <Newsletter />
           <Footer />
+          <ScrollEffects />
         </CartProvider>
       </body>
     </html>

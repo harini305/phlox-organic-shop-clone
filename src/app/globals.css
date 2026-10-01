@@ -132,7 +132,8 @@ button, input {
 }
 
 button,
-select {
+select,
+textarea {
   font: inherit;
   color: inherit;
 }

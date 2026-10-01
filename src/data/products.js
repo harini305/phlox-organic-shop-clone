@@ -103,6 +103,88 @@ export const products = [
   },
 ];
 
+// Copy for the product detail page, keyed by id. `weight` is in kg.
+const productDetails = {
+  "savoy-cabbage": {
+    summary: "Crinkly, tender-leaved savoy with a mild, sweet flavour — great shredded raw or braised slowly with butter.",
+    weight: 1.2,
+    origin: "Kent, UK",
+  },
+  "organic-cauliflower": {
+    summary: "Dense white florets wrapped in fresh green leaves. Roast whole, rice it, or blitz into a silky soup.",
+    weight: 0.9,
+    origin: "Lincolnshire, UK",
+  },
+  "organic-lentil-sprouts": {
+    summary: "Crunchy sprouted lentils packed with plant protein. Toss into salads, wraps and grain bowls.",
+    weight: 0.25,
+    origin: "Somerset, UK",
+  },
+  "green-beans-1": {
+    summary: "Slim, snappy green beans picked young. Blanch for two minutes and finish with olive oil and lemon.",
+    weight: 1,
+    origin: "Kenya",
+  },
+  "green-beans-2": {
+    summary: "A full kilo of fine green beans, trimmed and ready to steam, stir-fry or add to curries.",
+    weight: 1,
+    origin: "Kenya",
+  },
+  "green-beans-3": {
+    summary: "Bright, crisp runner beans grown without synthetic pesticides — sweet enough to eat raw.",
+    weight: 1,
+    origin: "Spain",
+  },
+  strawberry: {
+    summary: "Juicy, sun-ripened strawberries with a deep red colour all the way through. Best eaten the day they arrive.",
+    weight: 0.4,
+    origin: "Herefordshire, UK",
+  },
+  "green-beans-4": {
+    summary: "Tender green beans with a fresh, grassy crunch, packed in compostable paper.",
+    weight: 1,
+    origin: "Portugal",
+  },
+  tomato: {
+    summary: "Vine-ripened tomatoes with real flavour — slice for salads, roast for sauces or eat with a pinch of salt.",
+    weight: 0.5,
+    origin: "Isle of Wight, UK",
+  },
+  "organic-lentil-sprouts-2": {
+    summary: "Freshly sprouted green lentils, rinsed and ready. A nutty, crunchy topping for soups and salads.",
+    weight: 0.25,
+    origin: "Somerset, UK",
+  },
+  "avocado-hass": {
+    summary: "Creamy Hass avocados, picked mature and ripened slowly. Ready to eat within two to three days.",
+    weight: 0.6,
+    origin: "Peru",
+  },
+  "organic-cauliflower-2": {
+    summary: "A compact organic cauliflower with tight curds and sweet, nutty flavour when roasted.",
+    weight: 0.8,
+    origin: "Cornwall, UK",
+  },
+};
+
+export function getProductDetails(product) {
+  const details = productDetails[product.id] ?? {};
+  return {
+    summary: details.summary ?? "",
+    weight: details.weight,
+    origin: details.origin,
+    description: [
+      `Our ${product.name.toLowerCase()} comes straight from certified organic growers we work with every season. Nothing is waxed, irradiated or sprayed with synthetic pesticides, and everything is packed in plastic-free, compostable materials.`,
+      "We harvest to order and deliver within 48 hours, so produce reaches your kitchen at its freshest. Store in a cool, dry place or the bottom of the fridge, and wash just before use.",
+    ],
+    highlights: [
+      "Certified organic and grown without synthetic pesticides",
+      "Harvested to order and delivered within 48 hours",
+      "Packed in plastic-free, compostable packaging",
+    ],
+  };
+}
+
 // Which products appear in each home-page section (by id, in display order).
 export const productCollections = {
   newProducts: products.map((p) => p.id),
@@ -133,4 +215,19 @@ export function isOnSale(product) {
 
 export function getProductHref(product) {
   return `/product/${product.id}`;
+}
+
+export function getProductsInCategory(slug) {
+  return products.filter((p) => p.categories.includes(slug));
+}
+
+/** Products sharing a category with `product`, most overlap first. */
+export function getRelatedProducts(product, limit = 4) {
+  return products
+    .filter((p) => p.id !== product.id)
+    .map((p) => ({ p, shared: p.categories.filter((c) => product.categories.includes(c)).length }))
+    .filter(({ shared }) => shared > 0)
+    .sort((a, b) => b.shared - a.shared)
+    .slice(0, limit)
+    .map(({ p }) => p);
 }

@@ -6,7 +6,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { PiListLight } from "react-icons/pi";
 import CategoryMenu from "@/components/ui/CategoryMenu";
 import SocialLinks from "@/components/ui/SocialLinks";
-import { mainNav } from "@/data/site";
+import { isCurrent, mainNav } from "@/data/site";
 import MobileMenu from "./MobileMenu";
 import styles from "./MainNav.module.css";
 
@@ -86,7 +86,7 @@ export default function MainNav() {
                       <Link
                         href={href}
                         className={styles.link}
-                        aria-current={pathname === href ? "page" : undefined}
+                        aria-current={isCurrent(pathname, href) ? "page" : undefined}
                       >
                         {label}
                       </Link>
