@@ -1,0 +1,30 @@
+.rating {
+  position: relative;
+  display: inline-flex;
+  font-size: 17px;
+  line-height: 1;
+}
+
+.base,
+.fill {
+  display: flex;
+  gap: 2px;
+}
+
+.base {
+  color: var(--color-border);
+}
+
+.fill {
+  position: absolute;
+  inset: 0 auto 0 0;
+  overflow: hidden;
+}
+
+.secondary .fill {
+  color: var(--color-secondary);
+}
+
+.primary .fill {
+  color: var(--color-primary);
+}

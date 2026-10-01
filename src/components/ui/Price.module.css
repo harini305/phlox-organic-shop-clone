@@ -1,0 +1,39 @@
+.price {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-family: var(--font-heading);
+  line-height: 1.3;
+}
+
+.current {
+  font-weight: 600;
+  color: var(--color-dark);
+  text-decoration: none;
+}
+
+.regular {
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--color-muted);
+}
+
+.md .current {
+  font-size: 20px;
+}
+
+.lg .current {
+  font-size: 22px;
+}
+
+@media (max-width: 767px) {
+  .md .current,
+  .lg .current {
+    font-size: 18px;
+  }
+
+  .regular {
+    font-size: 14px;
+  }
+}

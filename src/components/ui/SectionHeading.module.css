@@ -1,0 +1,80 @@
+.heading {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.center {
+  align-items: center;
+  text-align: center;
+}
+
+.left {
+  align-items: flex-start;
+  text-align: left;
+}
+
+.eyebrow {
+  display: inline-block;
+  padding: 7px 20px;
+  font-family: var(--font-heading);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.4;
+  color: var(--color-green-deep);
+  background: var(--color-secondary-alpha);
+  border-radius: var(--radius-sm);
+  box-shadow: 0 3px 9px rgba(115, 246, 190, 0.52);
+}
+
+.title {
+  position: relative;
+  font-size: var(--fs-h1);
+  font-weight: 400;
+  line-height: 1.4;
+  letter-spacing: normal;
+}
+
+.dark .title {
+  color: var(--color-dark);
+}
+
+.green .title {
+  color: var(--color-green-deep);
+}
+
+/* Thin gradient rule fading in from the left, under the title */
+.decorated .title::after {
+  content: "";
+  position: absolute;
+  top: calc(100% + 6px);
+  right: 9%;
+  width: 92%;
+  height: 3px;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0) 47%, var(--color-secondary) 100%);
+  pointer-events: none;
+}
+
+@media (max-width: 1024px) {
+  .eyebrow {
+    font-size: 13px;
+  }
+
+  .title {
+    font-size: 35px;
+  }
+}
+
+@media (max-width: 767px) {
+  .heading {
+    gap: 16px;
+  }
+
+  .title {
+    font-size: 28px;
+  }
+
+  .decorated .title::after {
+    display: none;
+  }
+}
