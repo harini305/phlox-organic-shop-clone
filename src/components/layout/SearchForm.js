@@ -2,9 +2,10 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useEffect, useId, useMemo, useRef, useState } from "react";
 import { PiCaretDownBold, PiMagnifyingGlassLight } from "react-icons/pi";
-import { categories } from "@/data/categories";
+import { categories, getCategoryHref } from "@/data/categories";
 import { getProductHref, products } from "@/data/products";
 import { formatPrice } from "@/components/ui/Price";
 import styles from "./SearchForm.module.css";
@@ -12,11 +13,12 @@ import styles from "./SearchForm.module.css";
 const MAX_RESULTS = 6;
 
 /**
- * Header product search: keyword + category filter. Results are matched
- * client-side against the local catalogue and shown in a dropdown panel.
+ * Header product search: keyword + category filter. Matches are previewed in
+ * a dropdown as you type; submitting opens the full results on the shop page.
  */
 export default function SearchForm({ className = "" }) {
   const id = useId();
+  const router = useRouter();
   const formRef = useRef(null);
   const [query, setQuery] = useState("");
   const [category, setCategory] = useState("");
@@ -57,7 +59,9 @@ export default function SearchForm({ className = "" }) {
       className={[styles.form, className].filter(Boolean).join(" ")}
       onSubmit={(e) => {
         e.preventDefault();
-        setOpen(true);
+        setOpen(false);
+        const params = term ? `?s=${encodeURIComponent(query.trim())}` : "";
+        router.push(`${category ? getCategoryHref(category) : "/shop"}${params}`);
       }}
       onBlur={(e) => {
         if (!e.currentTarget.contains(e.relatedTarget)) setOpen(false);

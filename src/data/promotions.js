@@ -23,7 +23,7 @@ export const heroBanners = {
     badge: { text: "Sale", variant: "tag" },
     subtitle: "Save Up to Flat",
     title: "Fresh Fruit",
-    cta: { label: "Shop now", href: "/shop/category/fruits" },
+    cta: { label: "Shop now", href: "/product-category/fruits" },
     theme: "green",
   },
 };
@@ -53,7 +53,7 @@ export const promoPairOne = [
     badge: { text: "%30", variant: "tag", color: "green" },
     subtitle: "Save Up to Flat",
     title: "Fresh Fruit",
-    cta: { label: "Shop now", href: "/shop/category/fruits" },
+    cta: { label: "Shop now", href: "/product-category/fruits" },
   },
 ];
 
@@ -79,7 +79,7 @@ export const promoPairTwo = [
     badge: { text: "%50", variant: "tag", color: "green" },
     subtitle: "All Fruit and vegetable",
     title: "Sale 50% Off",
-    cta: { label: "Shop now", href: "/shop/category/vegetables" },
+    cta: { label: "Shop now", href: "/product-category/vegetables" },
     contentPosition: "end",
     sticker: {
       src: "/images/badges/badge-home-grown.png",
@@ -96,7 +96,7 @@ export const promoPairTwo = [
     badge: { text: "%50", variant: "text" },
     subtitle: "Sale 50% Off",
     title: "Organic Juice",
-    cta: { label: "Shop now", href: "/shop/category/organic-juice" },
+    cta: { label: "Shop now", href: "/product-category/organic-juice" },
     theme: "dark",
     sticker: {
       src: "/images/badges/badge-home-made.png",

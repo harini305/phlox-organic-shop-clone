@@ -19,5 +19,5 @@ export function getCategory(slug) {
 }
 
 export function getCategoryHref(slug) {
-  return `/shop/category/${slug}`;
+  return `/product-category/${slug}`;
 }

@@ -1,0 +1,244 @@
+.card {
+  padding: 22px 30px 40px;
+  background: var(--color-white);
+  border-radius: 20px;
+  box-shadow: 0 2px 24px rgba(0, 0, 0, 0.05);
+}
+
+.block {
+  padding-top: 26px;
+}
+
+.block + .block {
+  padding-top: 44px;
+}
+
+/* Title with the short green rule after it */
+.heading {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 30px;
+  font-size: 25px;
+  font-weight: 600;
+  letter-spacing: -0.3px;
+  color: var(--color-dark);
+}
+
+.heading::after {
+  content: "";
+  width: 96px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--color-secondary) 0%, rgba(34, 193, 87, 0) 100%);
+  border-radius: 3px;
+}
+
+/* ---------- Search ---------- */
+.search {
+  display: grid;
+  gap: 12px;
+}
+
+.input {
+  height: 52px;
+  padding: 0 16px;
+  font-size: 15px;
+  color: var(--color-dark);
+  background: var(--color-white);
+  border: 2px solid #f1f1f1;
+  border-radius: var(--radius-md);
+}
+
+.input::placeholder {
+  color: var(--color-primary);
+  opacity: 0.75;
+}
+
+.input:focus-visible {
+  outline: none;
+  border-color: var(--color-secondary);
+}
+
+.searchButton,
+.filterButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-size: 15px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--color-white);
+  border-radius: var(--radius-md);
+  transition:
+    filter var(--duration) var(--ease),
+    transform var(--duration) var(--ease);
+}
+
+.searchButton {
+  height: 56px;
+  background: linear-gradient(180deg, var(--color-secondary) 0%, var(--color-green-dark) 100%);
+}
+
+.searchButton svg {
+  font-size: 20px;
+}
+
+.searchButton:hover,
+.filterButton:hover {
+  filter: brightness(1.08);
+  transform: translateY(-2px);
+}
+
+/* ---------- Price ---------- */
+.priceLabels {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  font-size: 15px;
+  color: var(--color-dark);
+}
+
+.range {
+  position: relative;
+  height: 26px;
+  margin: 0 2px;
+}
+
+/* Track + highlighted span between the thumbs */
+.range::before,
+.range::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  height: 5px;
+  border-radius: 5px;
+  transform: translateY(-50%);
+}
+
+.range::before {
+  left: 0;
+  right: 0;
+  background: #e6e6e6;
+}
+
+.range::after {
+  left: var(--left);
+  right: calc(100% - var(--right));
+  background: var(--color-secondary);
+}
+
+.range input {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  width: 100%;
+  margin: 0;
+  background: none;
+  appearance: none;
+  pointer-events: none;
+}
+
+.range input::-webkit-slider-thumb {
+  width: 20px;
+  height: 20px;
+  background: var(--color-primary);
+  border: 3px solid var(--color-secondary);
+  border-radius: 50%;
+  appearance: none;
+  cursor: grab;
+  pointer-events: auto;
+}
+
+.range input::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  background: var(--color-primary);
+  border: 3px solid var(--color-secondary);
+  border-radius: 50%;
+  cursor: grab;
+  pointer-events: auto;
+}
+
+.range input:focus-visible::-webkit-slider-thumb {
+  outline: 2px solid var(--color-green-deep);
+  outline-offset: 2px;
+}
+
+.range input:focus-visible::-moz-range-thumb {
+  outline: 2px solid var(--color-green-deep);
+  outline-offset: 2px;
+}
+
+.filterButton {
+  height: 46px;
+  margin-top: 30px;
+  padding: 0 40px;
+  background: var(--color-primary);
+}
+
+/* ---------- Categories ---------- */
+.categories {
+  display: grid;
+}
+
+.category {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 11px 8px;
+  font-size: 16px;
+  color: var(--color-dark);
+  border-bottom: 1px solid rgba(112, 112, 112, 0.11);
+  transition: color var(--duration) var(--ease);
+}
+
+.category:hover {
+  color: var(--color-primary);
+}
+
+.box {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 26px;
+  height: 26px;
+  font-size: 14px;
+  color: var(--color-white);
+  background: #e3e3e3;
+  border-radius: var(--radius-sm);
+  transition: background-color var(--duration) var(--ease);
+}
+
+.category:hover .box {
+  background: #cfe9d9;
+}
+
+.active .box,
+.active:hover .box {
+  background: var(--color-secondary);
+}
+
+.active {
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.categoryName {
+  flex: 1;
+}
+
+.categoryCount {
+  font-size: 14px;
+  color: var(--color-muted);
+}
+
+@media (max-width: 767px) {
+  .card {
+    padding: 10px 20px 30px;
+  }
+
+  .heading {
+    font-size: 22px;
+  }
+}

@@ -1,0 +1,44 @@
+.nav {
+  display: flex;
+  justify-content: center;
+}
+
+.list {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.page,
+.arrow,
+.text {
+  display: grid;
+  place-items: center;
+  min-width: 36px;
+  height: 36px;
+  padding: 0 6px;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--color-muted);
+  border-radius: var(--radius-sm);
+  transition:
+    color var(--duration) var(--ease),
+    background-color var(--duration) var(--ease);
+}
+
+.arrow,
+.text {
+  color: var(--color-dark);
+}
+
+.page:hover,
+.arrow:hover,
+.text:hover {
+  color: var(--color-primary);
+}
+
+.current,
+.current:hover {
+  color: var(--color-white);
+  background: linear-gradient(180deg, var(--color-secondary) 0%, var(--color-primary) 100%);
+}
