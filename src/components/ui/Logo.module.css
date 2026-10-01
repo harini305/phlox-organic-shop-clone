@@ -1,0 +1,16 @@
+.logo {
+  display: inline-flex;
+  flex-shrink: 0;
+  border-radius: var(--radius-sm);
+}
+
+.image {
+  width: auto;
+  height: 66px;
+}
+
+@media (max-width: 767px) {
+  .image {
+    height: 52px;
+  }
+}

@@ -1,0 +1,122 @@
+.menu {
+  display: flex;
+  flex-direction: column;
+}
+
+.card {
+  padding: 24px 24px 0;
+  background: var(--color-white);
+  border-radius: 20px;
+  box-shadow: 0 2px 24px rgba(0, 0, 0, 0.09);
+}
+
+.item {
+  border-bottom: 1px solid rgba(112, 112, 112, 0.11);
+}
+
+.link {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 12px 14px 10px;
+  font-size: 17px;
+  line-height: 1.3;
+  color: var(--color-dark);
+  border-radius: var(--radius-md);
+  isolation: isolate;
+  transition: color var(--duration) var(--ease);
+}
+
+/* Hover: green gradient pill with white text (as in the reference) */
+.link::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(180deg, var(--color-secondary) 0%, var(--color-green-dark) 100%);
+  border-radius: inherit;
+  opacity: 0;
+  transition: opacity var(--duration) var(--ease);
+}
+
+.link:hover,
+.link:focus-visible {
+  color: var(--color-white);
+}
+
+.link:hover::before,
+.link:focus-visible::before {
+  opacity: 1;
+}
+
+.link:hover .icon,
+.link:focus-visible .icon,
+.link:hover .caret,
+.link:focus-visible .caret {
+  color: var(--color-white) !important;
+}
+
+.icon {
+  flex-shrink: 0;
+  font-size: 26px;
+  transition: color var(--duration) var(--ease);
+}
+
+.label {
+  flex: 1;
+}
+
+.caret {
+  flex-shrink: 0;
+  font-size: 12px;
+  color: var(--color-secondary);
+  transition: color var(--duration) var(--ease);
+}
+
+.viewAll {
+  padding: 8px 0 14px 49px;
+}
+
+.viewAllLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 4px 0;
+  font-size: 17px;
+  color: var(--color-secondary);
+  transition: color var(--duration) var(--ease);
+}
+
+.viewAllLink svg {
+  font-size: 12px;
+}
+
+.viewAllLink:hover {
+  color: var(--color-primary);
+}
+
+/* Drawer: no card chrome, tighter rows */
+.plain .link {
+  padding: 11px 8px;
+  font-size: 16px;
+}
+
+.plain .icon {
+  font-size: 22px;
+}
+
+.plain .viewAll {
+  padding: 10px 0 0 42px;
+}
+
+@media (max-width: 1024px) {
+  .card {
+    padding: 16px 16px 0;
+  }
+
+  .link {
+    padding: 11px 8px;
+    font-size: 15px;
+  }
+}

@@ -1,0 +1,50 @@
+.list {
+  display: flex;
+  align-items: center;
+}
+
+.link {
+  display: grid;
+  place-items: center;
+  transition:
+    color var(--duration) var(--ease),
+    background-color var(--duration) var(--ease),
+    transform var(--duration) var(--ease);
+}
+
+/* Header: bare green glyphs */
+.plain {
+  gap: 14px;
+}
+
+.plain .link {
+  width: 40px;
+  height: 40px;
+  font-size: 16px;
+  color: var(--color-primary);
+  border-radius: 50%;
+}
+
+.plain .link:hover {
+  color: var(--color-secondary);
+  transform: translateY(-2px);
+}
+
+/* Footer: orange rounded tiles */
+.boxed {
+  gap: 12px;
+}
+
+.boxed .link {
+  width: 48px;
+  height: 48px;
+  font-size: 16px;
+  color: var(--color-white);
+  background: var(--color-accent);
+  border-radius: var(--radius-sm);
+}
+
+.boxed .link:hover {
+  background: var(--color-sale);
+  transform: translateY(-3px);
+}

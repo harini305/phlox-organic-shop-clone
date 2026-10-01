@@ -15,12 +15,13 @@
   --color-muted: #707070;
   --color-border: #eaeaea;
   --color-bg-soft: #f3f3f3;
+  --color-page: #f4f4f4;
   --color-white: #ffffff;
 
   /* Typography */
-  --font-heading: var(--font-roboto), Arial, sans-serif;
+  /* The reference renders every text style in Nunito */
+  --font-heading: var(--font-nunito), Arial, sans-serif;
   --font-body: var(--font-nunito), Arial, sans-serif;
-  --font-serif: var(--font-roboto-slab), Georgia, serif;
 
   --fs-display: 55px;
   --fs-h1: 45px;
@@ -44,8 +45,8 @@
   --radius-pill: 50px;
 
   /* Layout */
-  --container: 1400px;
-  --gutter: 16px;
+  --container: 1440px;
+  --gutter: 35px;
   --section-space: 80px;
 
   /* Motion */
@@ -59,6 +60,7 @@
     --fs-h1: 36px;
     --fs-h2: 30px;
     --section-space: 60px;
+    --gutter: 24px;
   }
 }
 
@@ -69,6 +71,7 @@
     --fs-h2: 26px;
     --fs-h3: 24px;
     --section-space: 48px;
+    --gutter: 16px;
   }
 }
 
@@ -89,7 +92,7 @@ body {
   font-size: var(--fs-base);
   line-height: var(--lh-base);
   color: var(--color-text);
-  background: var(--color-white);
+  background: var(--color-page);
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
 }
@@ -128,6 +131,17 @@ button, input {
   color: inherit;
 }
 
+button,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-secondary);
+  outline-offset: 2px;
+}
+
 button {
   cursor: pointer;
   background: none;
@@ -141,6 +155,23 @@ button {
   max-width: var(--container);
   margin-inline: auto;
   padding-inline: var(--gutter);
+}
+
+.skip-link {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  z-index: 1000;
+  padding: 10px 18px;
+  font-weight: 700;
+  color: var(--color-white);
+  background: var(--color-primary);
+  border-radius: var(--radius-sm);
+  transform: translateY(-200%);
+}
+
+.skip-link:focus {
+  transform: none;
 }
 
 .visually-hidden {

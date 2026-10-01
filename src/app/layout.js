@@ -1,36 +1,51 @@
-import { Roboto, Roboto_Slab, Nunito } from "next/font/google";
+import { Nunito } from "next/font/google";
+import Header from "@/components/layout/Header";
+import Footer from "@/components/layout/Footer";
+import { CartProvider } from "@/context/CartContext";
 import "./globals.css";
-
-const roboto = Roboto({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
-  variable: "--font-roboto",
-  display: "swap",
-});
-
-const robotoSlab = Roboto_Slab({
-  subsets: ["latin"],
-  weight: ["400"],
-  variable: "--font-roboto-slab",
-  display: "swap",
-});
 
 const nunito = Nunito({
   subsets: ["latin"],
-  weight: ["400", "600", "700", "800"],
+  weight: ["300", "400", "500", "600", "700", "800"],
   variable: "--font-nunito",
   display: "swap",
 });
 
 export const metadata = {
-  title: "Organic Shop",
-  description: "Fresh organic fruits, vegetables and groceries delivered to your door.",
+  title: {
+    default: "Organic Shop — Fresh Organic Fruit, Vegetables & Groceries",
+    template: "%s | Organic Shop",
+  },
+  description:
+    "Shop fresh organic fruit, vegetables, juices and pantry staples. Weekly deals, free shipping on orders over $50 and plastic-free delivery.",
+  applicationName: "Organic Shop",
+  keywords: ["organic shop", "organic food", "fresh fruit", "vegetables", "organic juice", "grocery delivery"],
+  openGraph: {
+    type: "website",
+    siteName: "Organic Shop",
+    title: "Organic Shop — Fresh Organic Fruit, Vegetables & Groceries",
+    description: "Fresh organic produce and pantry staples with weekly deals and free shipping over $50.",
+  },
+  robots: { index: false, follow: false }, // demo build
+};
+
+export const viewport = {
+  themeColor: "#007d56",
 };
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${roboto.variable} ${robotoSlab.variable} ${nunito.variable}`}>
-      <body>{children}</body>
+    <html lang="en" className={nunito.variable}>
+      <body>
+        <a href="#main" className="skip-link">
+          Skip to content
+        </a>
+        <CartProvider>
+          <Header />
+          <main id="main">{children}</main>
+          <Footer />
+        </CartProvider>
+      </body>
     </html>
   );
 }
