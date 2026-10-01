@@ -1,3 +1,4 @@
+import ScrollEffects from "@/components/layout/ScrollEffects";
 import BestDeals from "@/components/sections/BestDeals";
 import CertificationBadges from "@/components/sections/CertificationBadges";
 import FeaturedProducts from "@/components/sections/FeaturedProducts";
@@ -22,6 +23,7 @@ export default function Home() {
       <Testimonials />
       <CertificationBadges />
       <Newsletter />
+      <ScrollEffects />
     </>
   );
 }
