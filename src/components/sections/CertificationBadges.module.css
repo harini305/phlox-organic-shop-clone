@@ -1,0 +1,58 @@
+/* Grey page above, footer green below — the card straddles both */
+.section {
+  padding-top: 105px;
+  background: linear-gradient(180deg, var(--color-page) 0 calc(100% - 90px), var(--color-green-dark) 0);
+}
+
+.card {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  align-items: center;
+  justify-items: center;
+  gap: 30px;
+  padding: 60px 70px;
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+}
+
+.item {
+  display: grid;
+  place-items: center;
+}
+
+.image {
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  max-height: 125px;
+  transition: transform 0.4s var(--ease);
+}
+
+.item:hover .image {
+  transform: scale(1.08) rotate(-4deg);
+}
+
+@media (max-width: 1024px) {
+  .card {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 40px 24px;
+    padding: 50px 40px;
+  }
+}
+
+@media (max-width: 767px) {
+  .section {
+    padding-top: 70px;
+    background: linear-gradient(180deg, var(--color-page) 0 calc(100% - 60px), var(--color-green-dark) 0);
+  }
+
+  .card {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 30px 20px;
+    padding: 36px 20px;
+  }
+
+  .image {
+    max-height: 90px;
+  }
+}

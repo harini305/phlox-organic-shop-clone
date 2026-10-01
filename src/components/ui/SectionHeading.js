@@ -15,16 +15,20 @@ export default function SectionHeading({
   align = "center",
   tone = "dark",
   decorated = false,
+  id,
   className = "",
+  ...rest
 }) {
   const classes = [styles.heading, styles[align], styles[tone], decorated && styles.decorated, className]
     .filter(Boolean)
     .join(" ");
 
   return (
-    <div className={classes}>
+    <div className={classes} {...rest}>
       {eyebrow && <p className={styles.eyebrow}>{eyebrow}</p>}
-      <Tag className={styles.title}>{title}</Tag>
+      <Tag id={id} className={styles.title}>
+        {title}
+      </Tag>
     </div>
   );
 }

@@ -1,0 +1,114 @@
+.section {
+  padding-top: 120px;
+}
+
+.grid {
+  display: grid;
+  gap: 30px;
+}
+
+.wide .grid {
+  grid-template-columns: minmax(0, 980fr) minmax(0, 361fr);
+}
+
+.wide .banner {
+  min-height: 470px;
+}
+
+.equal {
+  padding-top: 95px;
+}
+
+.equal .grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 40px;
+}
+
+.equal .banner {
+  min-height: 410px;
+  border-radius: 20px;
+}
+
+/* Per-banner tuning */
+.no-plastic {
+  padding-left: 41px;
+}
+
+.no-plastic h2 {
+  max-width: 520px;
+  font-size: 37px;
+}
+
+.fresh-fruit {
+  padding-left: 27px;
+}
+
+.fruit-vegetable-sale {
+  padding-right: 60px;
+}
+
+.fruit-vegetable-sale > div:nth-child(2) {
+  width: 38%;
+  min-width: 230px;
+}
+
+.organic-juice {
+  padding-left: 43px;
+}
+
+.organic-juice p {
+  text-transform: uppercase;
+}
+
+@media (max-width: 1024px) {
+  .section {
+    padding-top: 90px;
+  }
+
+  .wide .grid,
+  .equal .grid {
+    grid-template-columns: 1fr;
+    gap: 70px;
+  }
+
+  .wide .banner,
+  .equal .banner {
+    min-height: 380px;
+  }
+
+  .no-plastic h2 {
+    font-size: 30px;
+  }
+}
+
+@media (max-width: 767px) {
+  .section {
+    padding-top: 80px;
+  }
+
+  .wide .grid,
+  .equal .grid {
+    gap: 60px;
+  }
+
+  .wide .banner,
+  .equal .banner {
+    min-height: 320px;
+  }
+
+  .no-plastic,
+  .fresh-fruit,
+  .fruit-vegetable-sale,
+  .organic-juice {
+    padding: 50px 24px 30px;
+  }
+
+  .no-plastic h2 {
+    font-size: 24px;
+  }
+
+  .fruit-vegetable-sale > div:nth-child(2) {
+    width: auto;
+    min-width: 0;
+  }
+}

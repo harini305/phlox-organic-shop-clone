@@ -10,7 +10,7 @@
   aspect-ratio: 370 / 422;
   border-radius: var(--radius-lg);
   overflow: hidden;
-  background: var(--color-bg-soft);
+  background: var(--color-white);
 }
 
 .lg .media {
@@ -89,7 +89,7 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding-top: 10px;
+  padding-top: 24px;
 }
 
 .categories {
@@ -109,7 +109,7 @@
 }
 
 .title {
-  margin: 6px 0 15px;
+  margin: 4px 0 14px;
   font-size: 24px;
   font-weight: 700;
   line-height: 1.3;

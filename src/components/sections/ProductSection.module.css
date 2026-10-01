@@ -1,0 +1,21 @@
+.section {
+  padding-top: 105px;
+}
+
+.featured {
+  padding-top: 145px;
+}
+
+@media (max-width: 1024px) {
+  .section,
+  .featured {
+    padding-top: 80px;
+  }
+}
+
+@media (max-width: 767px) {
+  .section,
+  .featured {
+    padding-top: 60px;
+  }
+}

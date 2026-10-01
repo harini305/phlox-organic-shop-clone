@@ -1,0 +1,52 @@
+.swiper {
+  --per-view: 1.1;
+  --gap: 16px;
+
+  padding: 0 16px 70px;
+}
+
+.slide {
+  height: auto;
+  padding-bottom: 6px;
+}
+
+.swiper:not(:global(.swiper-initialized)) .slide {
+  width: calc((100% - (var(--per-view) - 1) * var(--gap)) / var(--per-view));
+  margin-right: var(--gap);
+}
+
+/* Short centred track with a dark thumb, as in the reference */
+.swiper :global(.swiper-scrollbar) {
+  left: 50%;
+  bottom: 0;
+  width: 290px;
+  max-width: 70%;
+  height: 4px;
+  background: #cfcfcf;
+  transform: translateX(-50%);
+}
+
+.swiper :global(.swiper-scrollbar-drag) {
+  background: #333;
+  cursor: grab;
+}
+
+@media (min-width: 600px) {
+  .swiper {
+    --per-view: 2;
+    --gap: 24px;
+  }
+}
+
+@media (min-width: 1025px) {
+  .swiper {
+    --per-view: 3;
+    --gap: 32px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .swiper {
+    --per-view: 4;
+  }
+}

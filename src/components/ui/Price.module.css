@@ -8,7 +8,7 @@
 }
 
 .current {
-  font-weight: 600;
+  font-weight: 500;
   color: var(--color-dark);
   text-decoration: none;
 }

@@ -1,0 +1,116 @@
+.carousel {
+  --per-view: 1.25;
+  --gap: 16px;
+}
+
+/* ---------- Heading row ---------- */
+.header {
+  display: flex;
+  align-items: flex-end;
+  gap: 30px;
+  margin-bottom: 70px;
+}
+
+.heading {
+  flex-shrink: 0;
+}
+
+/* Thin rule that fades in from the left towards the arrows */
+.rule {
+  flex: 1;
+  height: 3px;
+  margin-bottom: 33px;
+  background: linear-gradient(90deg, rgba(34, 193, 87, 0) 0%, var(--color-secondary) 100%);
+  border-radius: 3px;
+}
+
+.nav {
+  margin-bottom: 14px;
+}
+
+/* ---------- Slides ---------- */
+.swiper {
+  overflow: hidden;
+}
+
+.slide {
+  height: auto;
+}
+
+/* Until Swiper initialises, lay the slides out the same way so nothing jumps */
+.swiper:not(:global(.swiper-initialized)) .slide {
+  width: calc((100% - (var(--per-view) - 1) * var(--gap)) / var(--per-view));
+  margin-right: var(--gap);
+}
+
+@media (min-width: 560px) {
+  .carousel {
+    --per-view: 2;
+    --gap: 20px;
+  }
+
+  .compact {
+    --gap: 12px;
+  }
+}
+
+@media (min-width: 768px) {
+  .carousel {
+    --per-view: 3;
+    --gap: 24px;
+  }
+
+  .compact {
+    --gap: 10px;
+  }
+}
+
+@media (min-width: 1025px) {
+  .carousel {
+    --per-view: 4;
+    --gap: 30px;
+  }
+
+  .compact {
+    --gap: 10px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .carousel {
+    --per-view: 5;
+    --gap: 33px;
+  }
+
+  .compact {
+    --per-view: 5.15;
+    --gap: 10px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .header {
+    margin-bottom: 44px;
+  }
+}
+
+@media (max-width: 767px) {
+  .header {
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 32px;
+  }
+
+  .heading {
+    flex-basis: 100%;
+  }
+
+  .rule {
+    margin-bottom: 0;
+  }
+
+  .nav {
+    margin-bottom: 0;
+  }
+}

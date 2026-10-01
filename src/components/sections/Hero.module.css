@@ -1,0 +1,87 @@
+.hero {
+  padding: 33px 0 0;
+  background: var(--color-white);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: minmax(0, 300fr) minmax(0, 735fr) minmax(0, 275fr);
+  gap: 30px;
+  align-items: stretch;
+}
+
+.sidebar {
+  margin-right: 10px;
+}
+
+.main {
+  min-height: 600px;
+  padding-right: 70px;
+}
+
+/* Narrow, tall card: text block sits low and to the right */
+.side {
+  padding: 40px 30px 40px 34%;
+}
+
+.side :global(h2) {
+  font-size: 36px;
+}
+
+@media (max-width: 1280px) {
+  .side {
+    padding-left: 30px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: minmax(0, 38fr) minmax(0, 62fr);
+    gap: 24px;
+  }
+
+  .sidebar {
+    margin-right: 0;
+  }
+
+  .main {
+    min-height: 0;
+    padding-right: 40px;
+  }
+
+  /* Content sits further left here; keep the sticker clear of the badge */
+  .main [data-sticker] {
+    left: 12% !important;
+  }
+
+  .side {
+    grid-column: 1 / -1;
+    min-height: 340px;
+    padding: 40px;
+  }
+}
+
+@media (max-width: 767px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Categories live in the nav dropdown and drawer on phones */
+  .sidebar {
+    display: none;
+  }
+
+  .main {
+    min-height: 460px;
+    padding: 70px 24px 30px;
+  }
+
+  .side {
+    min-height: 320px;
+    padding: 30px 24px;
+  }
+
+  .side :global(h2) {
+    font-size: 28px;
+  }
+}
